@@ -50,7 +50,7 @@ title('original image');
 hold on
 output_sigma = sigma_filter(img);
 for i = 1: 5
-    output_5_sigma = medfilt2(img);
+    output_5_sigma = sigma_filter(img);
     img = output_5_sigma;
 end
 subplot(1,3,2)
@@ -65,7 +65,7 @@ figure()
 imhist(output_5_sigma);
 
 
-% alpha_trim mean
+%% alpha_trim mean
 img = imread('disk.gif');
 figure(5)
 subplot(131)
