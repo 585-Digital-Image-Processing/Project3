@@ -166,4 +166,211 @@ colNames = {'mean','standard deviation'};
 mean_std_table = array2table(mean_std,'RowNames',rowNames,'VariableNames',colNames)
 
 %% Part II Anisotropic Diffusion for Image Filtering:
+% Anisotropic_Diffusion_exp with cwheelnoise.gif
+img = imread('cwheelnoise.gif');
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 50);
+figure()
+subplot(4,4,1)
+imshow(output_0);
+title('original image');
+subplot(4,4,2)
+imhist(output_0);
+title('histogram of original image');
+x = 1:256;
+y = output_0(x,128);
+subplot(4,4,3)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_0>=80 & output_0<=110);
+segmented=zeros(size(output_0));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,4)
+imshow(segmented);
+title('segmented 80-110');
 
+subplot(4,4,5)
+imshow(output_20);
+title('after 20 iterations');
+subplot(4,4,6)
+imhist(output_20);
+title('histogram after 20 iterations');
+x = 1:256;
+y = output_20(x,128);
+subplot(4,4,7)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_20>=80 & output_20<=110);
+segmented=zeros(size(output_20));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,8)
+imshow(segmented);
+title('segmented 80-110');
+
+subplot(4,4,9)
+imshow(output_50);
+title('after 50 iterations');
+subplot(4,4,10)
+imhist(output_50);
+title('histogram after 50 iterations');
+x = 1:256;
+y = output_50(x,128);
+subplot(4,4,11)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_50>=80 & output_50<=110);
+segmented=zeros(size(output_50));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,12)
+imshow(segmented);
+title('segmented 80-110');
+
+subplot(4,4,13)
+imshow(output_100);
+title('after 100 iterations');
+subplot(4,4,14)
+imhist(output_100);
+title('histogram after 100 iterations');
+x = 1:256;
+y = output_100(x,128);
+subplot(4,4,15)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_100>=80 & output_100<=110);
+segmented=zeros(size(output_100));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,16)
+imshow(segmented);
+title('segmented 80-110');
+
+% Anisotropic_Diffusion_rev with cwheelnoise.gif
+img = imread('cwheelnoise.gif');
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 50);
+figure()
+subplot(4,4,1)
+imshow(output_0);
+title('original image');
+subplot(4,4,2)
+imhist(output_0);
+title('histogram of original image');
+x = 1:256;
+y = output_0(x,128);
+subplot(4,4,3)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_0>=80 & output_0<=110);
+segmented=zeros(size(output_0));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,4)
+imshow(segmented);
+title('segmented 80-110');
+
+subplot(4,4,5)
+imshow(output_20);
+title('after 20 iterations');
+subplot(4,4,6)
+imhist(output_20);
+title('histogram after 20 iterations');
+x = 1:256;
+y = output_20(x,128);
+subplot(4,4,7)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_20>=80 & output_20<=110);
+segmented=zeros(size(output_20));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,8)
+imshow(segmented);
+title('segmented 80-110');
+
+subplot(4,4,9)
+imshow(output_50);
+title('after 50 iterations');
+subplot(4,4,10)
+imhist(output_50);
+title('histogram after 50 iterations');
+x = 1:256;
+y = output_50(x,128);
+subplot(4,4,11)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_50>=80 & output_50<=110);
+segmented=zeros(size(output_50));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,12)
+imshow(segmented);
+title('segmented 80-110');
+
+subplot(4,4,13)
+imshow(output_100);
+title('after 100 iterations');
+subplot(4,4,14)
+imhist(output_100);
+title('histogram after 100 iterations');
+x = 1:256;
+y = output_100(x,128);
+subplot(4,4,15)
+plot(x,y);
+title('y=128');
+[r, c]=find(output_100>=80 & output_100<=110);
+segmented=zeros(size(output_100));
+for i = 1:length(r)
+    segmented(r(i),c(i))=255;
+end
+subplot(4,4,16)
+imshow(segmented);
+title('segmented 80-110');
+
+
+% Anisotropic_Diffusion_exp with cameraman.tif
+img = imread('cameraman.tif');
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 50);
+figure()
+subplot(2,2,1)
+imshow(output_0);
+title('original image');
+
+subplot(2,2,2)
+imshow(output_20);
+title('after 20 iterations');
+
+subplot(2,2,3)
+imshow(output_50);
+title('after 50 iterations');
+
+subplot(2,2,4)
+imshow(output_100);
+title('after 100 iterations');
+
+% Anisotropic_Diffusion_rev with cameraman.tif
+img = imread('cameraman.tif');
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 50);
+figure()
+subplot(2,2,1)
+imshow(output_0);
+title('original image');
+
+subplot(2,2,2)
+imshow(output_20);
+title('after 20 iterations');
+
+subplot(2,2,3)
+imshow(output_50);
+title('after 50 iterations');
+
+subplot(2,2,4)
+imshow(output_100);
+title('after 100 iterations');
