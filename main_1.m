@@ -41,9 +41,12 @@ hold off;
 figure(4)
 imhist(output_5_med);
 
+
+
+
 %% Sigma filter
 img = imread('disk.gif');
-figure()
+figure(5)
 subplot(1,3,1)
 imshow(img);
 title('original image');
@@ -61,13 +64,13 @@ imshow(output_5_sigma);
 title('sigma filter 5 iteration');
 hold off;
 
-figure()
+figure(6)
 imhist(output_5_sigma);
 
 
 %% alpha_trim mean
 img = imread('disk.gif');
-figure(5)
+figure(7)
 subplot(131)
 imshow(img);
 hold on
@@ -82,5 +85,27 @@ subplot(133)
 imshow(output_5_alpha);
 hold off;
 
-figure(6)
+figure(8)
 imhist(output_5_alpha);
+
+
+% Symmetric Nearest Neighbor Mean Filter
+img = imread('disk.gif');
+figure(9)
+subplot(131)
+imshow(img);
+hold on
+output_SNNMF = symmetry_NNMF(img);
+for i = 1:5
+    output_5_SNNMF = symmetry_NNMF(img);
+    img = output_5_SNNMF;
+end
+subplot(132)
+imshow(output_SNNMF);
+subplot(133)
+imshow(output_5_SNNMF);
+hold off;
+
+figure(10)
+imhist(output_5_SNNMF);
+
