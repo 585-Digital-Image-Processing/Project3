@@ -27,6 +27,7 @@ title('histogram of 5x5 mean after 5 iterations');
 
 % Find the position of large disk, 
 large_disk_m = (output_5_mean(50:181, 32:150));
+imhist(large_disk_m);
 large_ind = find(large_disk_m > 100);
 large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
