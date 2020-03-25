@@ -1,4 +1,4 @@
-
+%% part I: Nonlinear Filtering
 mean_std = [];
 %% 5x5 mean
 img = imread('disk.gif'); % read the image
@@ -27,7 +27,12 @@ title('histogram of 5x5 mean after 5 iterations');
 
 % Find the position of large disk, 
 large_disk_m = (output_5_mean(50:181, 32:150));
+figure()
+imshow(large_disk_m);
+title('large disk after 5x5 mean filter (5 iteration)');
+figure()
 imhist(large_disk_m);
+title('histogram of the large disk after 5x5 mean filter (5 iteration)');
 large_ind = find(large_disk_m > 100);
 large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
@@ -143,16 +148,16 @@ for i = 1:5
 end
 subplot(132)
 imshow(output_SNNMF);
-title(' 1 iteration');
+title(' 1 iteration SNNMF');
 subplot(133)
 imshow(output_5_SNNMF);
-title(' 5 iterations');
+title(' 5 iterations SNNMF');
 hold off;
 %suptitle(' symmetric nearest-neighbor mean filter');
 
 figure(10)
 imhist(output_5_SNNMF);
-title(' histogram of symmetric nearest-neighbor mean filter');
+title(' histogram of SNNMF 5 iterations');
 
 % Find the position of large disk, 
 large_disk_m = (output_5_alpha(50:181, 32:150));
