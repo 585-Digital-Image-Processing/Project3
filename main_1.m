@@ -1,6 +1,7 @@
-img = imread('disk.gif'); % read the image
 
+mean_std = [];
 %% 5x5 mean
+img = imread('disk.gif'); % read the image
 figure(1)
 subplot(131)
 imshow(img);
@@ -19,12 +20,18 @@ subplot(133)
 imshow(output_5_mean);
 title('5x5 mean 5 iterations');
 hold off
-suptitle('5x5 mean filter');
 
 figure(2)
 imhist(output_5_mean);
 title('histogram of 5x5 mean after 5 iterations');
 
+% Find the position of large disk, 
+large_disk_m = (output_5_mean(50:181, 32:150));
+large_ind = find(large_disk_m > 100);
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 
 %% 5x5 median filter
 img = imread('disk.gif');
@@ -45,12 +52,18 @@ subplot(133)
 imshow(output_5_med);
 title('5x5 median filter 5 iterations');
 hold off;
-suptitle('5x5 median filter');
+%suptitle('5x5 median filter');
 
 figure(4)
 imhist(output_5_med);
 title('histogram of 5x5 median after 5 iterations');
 
+% Find the position of large disk, 
+large_disk_m = (output_5_med(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 
 %% alpha_trim mean
 img = imread('disk.gif');
@@ -71,11 +84,18 @@ subplot(133)
 imshow(output_5_alpha);
 title(' alpha trim filter 5 iterations')
 hold off;
-suptitle('alpha trimmed filter');
+%suptitle('alpha trimmed filter');
 
 figure(6)
 imhist(output_5_alpha);
 title(' histogram of alpha trimmed filter after 5 iterations');
+
+% Find the position of large disk, 
+large_disk_m = (output_5_alpha(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 
 %% Sigma filter
 img = imread('disk.gif');
@@ -96,11 +116,18 @@ subplot(1,3,3)
 imshow(output_5_sigma);
 title('sigma filter 5 iteration');
 hold off;
-suptitle('sigma filter');
+%suptitle('sigma filter');
 
 figure()
 imhist(output_5_sigma);
 title('histogram of sigma filter after 5 iterations');
+
+% Find the position of large disk, 
+large_disk_m = (output_5_sigma(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 %% Symmetric Nearest Neighbor Mean Filter
 img = imread('disk.gif');
 figure(9)
@@ -120,8 +147,15 @@ subplot(133)
 imshow(output_5_SNNMF);
 title(' 5 iterations');
 hold off;
-suptitle(' symmetric nearest-neighbor mean filter');
+%suptitle(' symmetric nearest-neighbor mean filter');
 
 figure(10)
 imhist(output_5_SNNMF);
 title(' histogram of symmetric nearest-neighbor mean filter');
+
+% Find the position of large disk, 
+large_disk_m = (output_5_alpha(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
