@@ -63,3 +63,24 @@ hold off;
 
 figure()
 imhist(output_5_sigma);
+
+
+% alpha_trim mean
+img = imread('disk.gif');
+figure(5)
+subplot(131)
+imshow(img);
+hold on
+output_alpha = alpha_trim(img, 0.25);
+for i = 1: 5
+    output_5_alpha = alpha_trim(img, 0.25) ;
+    img = output_5_alpha;
+end
+subplot(132)
+imshow(output_alpha);
+subplot(133)
+imshow(output_5_alpha);
+hold off;
+
+figure(6)
+imhist(output_5_alpha);
