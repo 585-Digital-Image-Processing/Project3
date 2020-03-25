@@ -1,6 +1,6 @@
 img = imread('disk.gif'); % read the image
 
-% 5x5 mean
+%% 5x5 mean
 figure(1)
 subplot(131)
 imshow(img);
@@ -21,7 +21,7 @@ figure(2)
 imhist(output_5_mean);
 
 
-% median filter
+%% median filter
 img = imread('disk.gif');
 figure(3)
 subplot(131)
@@ -40,8 +40,6 @@ hold off;
 
 figure(4)
 imhist(output_5_med);
-
-
 
 
 %% Sigma filter
