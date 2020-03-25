@@ -160,3 +160,10 @@ large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
 
 mean_std = [mean_std; mean(large_disk), std(large_disk)];
+
+rowNames = {'mean','median','alpha-trimmed mean', 'sigma-filter', 'symmetric nearest-neighbor mean'};
+colNames = {'mean','standard deviation'};
+mean_std_table = array2table(mean_std,'RowNames',rowNames,'VariableNames',colNames)
+
+%% Part II Anisotropic Diffusion for Image Filtering:
+

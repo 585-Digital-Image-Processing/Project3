@@ -27,11 +27,12 @@ title('histogram of 5x5 mean after 5 iterations');
 
 % Find the position of large disk, 
 large_disk_m = (output_5_mean(50:181, 32:150));
+imhist(large_disk_m);
 large_ind = find(large_disk_m > 100);
 large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
 
-mean_std = [mean(large_disk), std(large_disk)];
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 
 %% 5x5 median filter
 img = imread('disk.gif');
@@ -59,11 +60,11 @@ imhist(output_5_med);
 title('histogram of 5x5 median after 5 iterations');
 
 % Find the position of large disk, 
-large_disk_m = (output_5_mean(50:181, 32:150));
+large_disk_m = (output_5_med(50:181, 32:150));
 large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
 
-mean_std = [mean(large_disk), std(large_disk)];
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 
 %% alpha_trim mean
 img = imread('disk.gif');
@@ -90,6 +91,13 @@ figure(6)
 imhist(output_5_alpha);
 title(' histogram of alpha trimmed filter after 5 iterations');
 
+% Find the position of large disk, 
+large_disk_m = (output_5_alpha(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
+
 %% Sigma filter
 img = imread('disk.gif');
 figure()
@@ -114,6 +122,13 @@ hold off;
 figure()
 imhist(output_5_sigma);
 title('histogram of sigma filter after 5 iterations');
+
+% Find the position of large disk, 
+large_disk_m = (output_5_sigma(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
 %% Symmetric Nearest Neighbor Mean Filter
 img = imread('disk.gif');
 figure(9)
@@ -138,3 +153,14 @@ hold off;
 figure(10)
 imhist(output_5_SNNMF);
 title(' histogram of symmetric nearest-neighbor mean filter');
+
+% Find the position of large disk, 
+large_disk_m = (output_5_alpha(50:181, 32:150));
+large_disk = large_disk_m(large_ind);
+large_disk = cast(large_disk, 'single');
+
+mean_std = [mean_std; mean(large_disk), std(large_disk)];
+
+rowNames = {'mean','median','alpha-trimmed mean', 'sigma-filter', };
+colNames = {'x','y','z'};
+sTable = array2table(sample,'RowNames',rowNames,'VariableNames',colNames)
