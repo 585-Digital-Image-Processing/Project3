@@ -46,7 +46,7 @@ imhist(output_5_med);
 
 %% Sigma filter
 img = imread('disk.gif');
-figure(5)
+figure()
 subplot(1,3,1)
 imshow(img);
 title('original image');
@@ -64,7 +64,7 @@ imshow(output_5_sigma);
 title('sigma filter 5 iteration');
 hold off;
 
-figure(6)
+figure()
 imhist(output_5_sigma);
 
 
@@ -89,7 +89,7 @@ figure(8)
 imhist(output_5_alpha);
 
 
-% Symmetric Nearest Neighbor Mean Filter
+%% Symmetric Nearest Neighbor Mean Filter
 img = imread('disk.gif');
 figure(9)
 subplot(131)

@@ -3,7 +3,7 @@
 % B: output, which is also gray-scale image with unsigned int data type
 function B = sigma_filter(A)
     % change A's type to int
-    A = cast(A, 'int8');
+    A = cast(A, 'int16');
     [m,n] = size(A);
     B = A;
     % avoid out of range
