@@ -176,7 +176,7 @@ mean_std_table = array2table(mean_std,'RowNames',rowNames,'VariableNames',colNam
 %% Part II Anisotropic Diffusion for Image Filtering:
 % Anisotropic_Diffusion_exp with cwheelnoise.gif
 img = imread('cwheelnoise.gif');
-[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 50);
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 25);
 figure()
 subplot(4,4,1)
 imshow(output_0);
@@ -260,7 +260,7 @@ title('segmented 80-110');
 
 % Anisotropic_Diffusion_rev with cwheelnoise.gif
 img = imread('cwheelnoise.gif');
-[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 50);
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 25);
 figure()
 subplot(4,4,1)
 imshow(output_0);
@@ -345,7 +345,7 @@ title('segmented 80-110');
 
 % Anisotropic_Diffusion_exp with cameraman.tif
 img = imread('cameraman.tif');
-[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 50);
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 25);
 figure()
 subplot(2,2,1)
 imshow(output_0);
@@ -365,7 +365,7 @@ title('after 100 iterations');
 
 % Anisotropic_Diffusion_rev with cameraman.tif
 img = imread('cameraman.tif');
-[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 50);
+[output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 25);
 figure()
 subplot(2,2,1)
 imshow(output_0);
