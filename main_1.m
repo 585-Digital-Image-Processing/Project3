@@ -2,6 +2,9 @@
 mean_std = [];
 %% 5x5 mean
 img = imread('disk.gif'); % read the image
+figure()
+imhist(img);
+title('histogram of the original image');
 figure(1)
 subplot(131)
 imshow(img);
