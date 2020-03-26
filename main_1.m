@@ -163,7 +163,7 @@ imhist(output_5_SNNMF);
 title(' histogram of SNNMF 5 iterations');
 
 % Find the position of large disk, 
-large_disk_m = (output_5_alpha(50:181, 32:150));
+large_disk_m = (output_5_SNNMF(50:181, 32:150));
 large_disk = large_disk_m(large_ind);
 large_disk = cast(large_disk, 'single');
 
