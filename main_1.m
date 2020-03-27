@@ -1,3 +1,4 @@
+% CSE 585 project3 
 %% part I: Nonlinear Filtering
 mean_std = [];
 %% 5x5 mean
@@ -176,6 +177,7 @@ mean_std_table = array2table(mean_std,'RowNames',rowNames,'VariableNames',colNam
 %% Part II Anisotropic Diffusion for Image Filtering:
 % Anisotropic_Diffusion_exp with cwheelnoise.gif
 img = imread('cwheelnoise.gif');
+% can manually change the parameter K as 25 or 50 to see different results
 [output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_exp(img, 100, 25);
 figure()
 subplot(4,4,1)
@@ -260,6 +262,7 @@ title('segmented 80-110');
 
 % Anisotropic_Diffusion_rev with cwheelnoise.gif
 img = imread('cwheelnoise.gif');
+% can manually change the parameter K as 25 or 50 to see different results
 [output_0, output_20, output_50, output_100] = Anisotropic_Diffusion_rev(img, 100, 25);
 figure()
 subplot(4,4,1)

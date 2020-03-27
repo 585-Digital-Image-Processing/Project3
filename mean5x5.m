@@ -1,8 +1,5 @@
 function output =mean5x5(img)
 
-%img = imread('disk.gif');
-
-
 [m,n] = size (img);
 
 output = zeros(m,n);
@@ -27,10 +24,6 @@ end
 output = uint8(output);
 end
 
-% figure(1);
-% subplot(121)
-% imshow(img);
-% subplot(122);
-% imshow(output);
+
 
         

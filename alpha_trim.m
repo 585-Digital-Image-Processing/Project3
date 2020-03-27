@@ -1,5 +1,5 @@
 
-function  output = alpha_trim (img, alpha);
+function  output = alpha_trim (img, alpha)
 
 % img = imread('disk.gif'); % read the image
 
